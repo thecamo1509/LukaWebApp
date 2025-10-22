@@ -1,0 +1,45 @@
+@reference "../../app/globals.css";
+
+.card {
+  @apply relative p-6 rounded-2xl mx-auto max-w-md w-full shadow-2xl min-h-[240px] flex flex-col justify-between transition-all duration-300;
+}
+
+.header {
+  @apply mb-8;
+}
+
+.name {
+  @apply text-white text-2xl font-bold mb-2 drop-shadow-lg;
+}
+
+.subtype {
+  @apply text-white/80 text-sm drop-shadow-lg;
+}
+
+.footer {
+  @apply flex items-end justify-between;
+}
+
+.info {
+  @apply flex flex-col gap-1;
+}
+
+.userName {
+  @apply text-white/80 text-sm drop-shadow-lg;
+}
+
+.number {
+  @apply text-white text-lg font-medium drop-shadow-lg;
+}
+
+.logo {
+  @apply flex gap-2;
+}
+
+.logoCircle {
+  @apply w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm border border-white/30;
+}
+
+.balance {
+  @apply absolute top-6 right-6 text-white text-xl font-bold drop-shadow-lg;
+}

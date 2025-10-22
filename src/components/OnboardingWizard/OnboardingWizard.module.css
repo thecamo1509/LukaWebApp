@@ -1,0 +1,27 @@
+@reference "../../app/globals.css";
+
+.container {
+  @apply w-full max-w-5xl mx-auto;
+  @apply flex flex-col gap-8;
+}
+
+.actions {
+  @apply flex items-center justify-center gap-4;
+  @apply mt-8;
+}
+
+.backButton {
+  @apply min-w-32;
+}
+
+.nextButton {
+  @apply min-w-32;
+}
+
+.stepIndicator {
+  @apply text-center mt-4;
+}
+
+.stepInfo {
+  @apply text-gray-400 text-sm;
+}

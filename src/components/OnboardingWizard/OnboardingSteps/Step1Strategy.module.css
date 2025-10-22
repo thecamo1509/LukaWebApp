@@ -1,0 +1,28 @@
+@reference "../../../app/globals.css";
+
+.stepContent {
+  @apply flex flex-col gap-8;
+}
+
+.header {
+  @apply text-center;
+}
+
+.stepTitle {
+  @apply text-3xl font-bold text-white mb-4;
+  @apply md:text-4xl;
+}
+
+.stepDescription {
+  @apply text-gray-300 text-lg;
+  @apply max-w-2xl mx-auto;
+}
+
+.highlight {
+  @apply text-emerald-400 font-semibold;
+}
+
+.strategies {
+  @apply grid grid-cols-2 gap-6;
+  @apply md:grid-cols-4 md:gap-8;
+}

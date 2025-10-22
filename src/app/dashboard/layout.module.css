@@ -1,0 +1,35 @@
+@reference "../globals.css";
+
+.container {
+  @apply min-h-screen flex flex-col;
+}
+
+.header {
+  @apply bg-white border-b border-gray-200 shadow-sm;
+}
+
+.headerContent {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between;
+}
+
+.logo {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.userSection {
+  @apply flex items-center gap-4;
+}
+
+.userName {
+  @apply text-sm text-gray-700 font-medium;
+}
+
+.signOutButton {
+  @apply px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg;
+  @apply hover:bg-red-700 transition-colors duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+}
+
+.main {
+  @apply flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}

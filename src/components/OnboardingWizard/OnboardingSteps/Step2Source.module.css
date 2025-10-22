@@ -1,0 +1,33 @@
+@reference "../../../app/globals.css";
+
+.container {
+  @apply flex flex-col gap-8 max-w-2xl mx-auto w-full;
+}
+
+.header {
+  @apply text-center;
+}
+
+.formSection {
+  @apply flex flex-col gap-6;
+}
+
+.previewSection {
+  @apply flex flex-col gap-4;
+}
+
+.stepDescription {
+  @apply text-white text-xl font-semibold mb-4 md:text-2xl;
+}
+
+.highlight {
+  @apply text-white font-semibold;
+}
+
+.instructions {
+  @apply text-gray-300 text-sm mb-2;
+}
+
+.previewLabel {
+  @apply text-white font-semibold text-lg text-center lg:text-center;
+}

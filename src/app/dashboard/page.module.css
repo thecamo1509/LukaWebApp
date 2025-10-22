@@ -1,0 +1,13 @@
+@reference "../globals.css";
+
+.container {
+  @apply flex flex-col items-center justify-center py-12;
+}
+
+.title {
+  @apply text-3xl font-bold text-gray-900 mb-4;
+}
+
+.description {
+  @apply text-lg text-gray-600;
+}
