@@ -32,10 +32,7 @@ export function SourcePreviewCard({
             •••• •••• •••• {sourceNumber || "2378"}
           </span>
         </div>
-        <div className={styles.logo}>
-          <div className={styles.logoCircle} />
-          <div className={styles.logoCircle} />
-        </div>
+        <div className={styles.logo}></div>
       </div>
 
       <div className={styles.balance}>
