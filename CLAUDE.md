@@ -6,6 +6,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a Next.js 15 project using the App Router architecture with TypeScript, Tailwind CSS v4, and Biome for linting and formatting. The project uses Auth.js (NextAuth.js v5) for authentication, Prisma as the ORM, and follows strict architectural patterns for data access, component structure, and testing.
 
+## Agent Guidelines Structure
+
+This project uses specialized guideline documents for different aspects of development. These are located in the `agents/` directory:
+
+- **`agents/backend/backend.md`** - Backend architecture guidelines
+  - Data Access Layer (DAL) patterns
+  - Server Actions implementation
+  - API Routes structure
+  - Prisma schema conventions
+  - Authentication & authorization
+  - Error handling & validation
+  
+- **`agents/frontend/styling.md`** - Frontend styling guidelines
+  - CSS Modules mandatory rules
+  - Tailwind CSS with `@apply` patterns
+  - Component styling conventions
+  - Responsive design patterns
+  - shadcn/ui integration
+
+- **`agents/git.md`** - Git workflow guidelines
+  - Conventional Commits specification
+  - Branch naming conventions
+  - Commit message structure
+  - Pull request workflow
+  - Best practices and anti-patterns
+
+**When working on:**
+- Backend/API/Database → Consult `agents/backend/backend.md`
+- UI/Components/Styling → Consult `agents/frontend/styling.md`
+- Git operations/commits → Consult `agents/git.md`
+
 ## Package Manager
 
 **ALWAYS use pnpm, never npm or yarn:**
@@ -643,6 +674,7 @@ describe('getUserById', () => {
 10. **use() over useEffect**: For data fetching in client components
 11. **Component Size Limit**: Keep components under 250 lines. Split into smaller components if needed.
 12. **Single @apply per Rule**: Use one `@apply` statement with all classes, not multiple lines.
+13. **Git Push Requires Permission**: ALWAYS ask for user permission before pushing to remote. Explain what will be pushed and wait for explicit confirmation.
 
 ## Common Pitfalls to Avoid
 
@@ -675,6 +707,12 @@ RESEND_API_KEY="..."
 
 ## Additional Resources
 
+### Internal Documentation
+- **Backend Guidelines**: `agents/backend/backend.md`
+- **Frontend/Styling Guidelines**: `agents/frontend/styling.md`
+- **Git Workflow Guidelines**: `agents/git.md`
+
+### External Documentation
 - Next.js 15 Docs: https://nextjs.org/docs
 - Prisma Docs: https://www.prisma.io/docs
 - Auth.js Docs: https://authjs.dev
