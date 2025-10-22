@@ -39,7 +39,7 @@ export interface OnboardingState {
   // Actions
   setCurrentStep: (step: number) => void;
   setStrategy: (strategy: Strategy) => void;
-  setSource: (source: Source) => void;
+  setSource: (source: Source | null) => void;
   setMonthlyIncome: (income: string) => void;
   setSavingsGoal: (goal: string) => void;
   nextStep: () => void;

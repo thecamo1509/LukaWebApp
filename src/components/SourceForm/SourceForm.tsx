@@ -145,6 +145,11 @@ export function SourceForm({
                     type="number"
                     placeholder="8900000"
                     className={styles.input}
+                    onChange={(e) => {
+                      const value = e.target.valueAsNumber;
+                      field.onChange(Number.isNaN(value) ? 0 : value);
+                    }}
+                    value={field.value || 0}
                   />
                 </FormControl>
                 <FormMessage />

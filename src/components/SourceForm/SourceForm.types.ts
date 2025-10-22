@@ -42,17 +42,24 @@ export const SUBTYPE_OPTIONS: Record<SourceType, Array<SubtypeOption>> = {
 export const sourceFormSchema = z.object({
   name: z.string().min(1, "El nombre es requerido"),
   type: z.enum(["cash", "bank_account", "card"], {
-    required_error: "Selecciona un tipo de fuente",
+    message: "Selecciona un tipo de fuente",
   }),
   subtype: z
     .enum(["savings", "checking", "debit_card", "credit_card"])
     .nullable()
     .optional(),
-  balance: z.coerce
-    .number({ required_error: "El saldo inicial es requerido" })
+  balance: z
+    .number({ message: "El saldo inicial es requerido" })
     .min(0.01, "El saldo debe ser mayor a 0"),
   color: z.string().min(1, "Selecciona un color"),
   source_number: z.string().optional(),
 });
 
-export type SourceFormValues = z.infer<typeof sourceFormSchema>;
+export interface SourceFormValues {
+  name: string;
+  type: SourceType;
+  subtype?: SourceSubtype;
+  balance: number;
+  color: string;
+  source_number?: string;
+}
