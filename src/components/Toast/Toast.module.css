@@ -1,0 +1,109 @@
+@reference "../../app/globals.css";
+
+.toast {
+  @apply fixed top-4 right-4 z-50;
+  @apply flex items-center gap-3 min-w-[320px] max-w-md;
+  @apply px-4 py-3 rounded-lg shadow-lg;
+  @apply bg-white border-2;
+}
+
+.success {
+  @apply border-green-500 bg-green-50;
+}
+
+.error {
+  @apply border-red-500 bg-red-50;
+}
+
+.warning {
+  @apply border-yellow-500 bg-yellow-50;
+}
+
+.info {
+  @apply border-blue-500 bg-blue-50;
+}
+
+.iconContainer {
+  @apply flex-shrink-0;
+}
+
+.icon {
+  @apply w-5 h-5;
+}
+
+.success .icon {
+  @apply text-green-600;
+}
+
+.error .icon {
+  @apply text-red-600;
+}
+
+.warning .icon {
+  @apply text-yellow-600;
+}
+
+.info .icon {
+  @apply text-blue-600;
+}
+
+.message {
+  @apply flex-1 text-sm font-medium;
+}
+
+.success .message {
+  @apply text-green-900;
+}
+
+.error .message {
+  @apply text-red-900;
+}
+
+.warning .message {
+  @apply text-yellow-900;
+}
+
+.info .message {
+  @apply text-blue-900;
+}
+
+.closeButton {
+  @apply flex-shrink-0 p-1 rounded-md transition-colors;
+  @apply hover:bg-black/5 focus:outline-none focus:ring-2;
+}
+
+.success .closeButton {
+  @apply focus:ring-green-500;
+}
+
+.error .closeButton {
+  @apply focus:ring-red-500;
+}
+
+.warning .closeButton {
+  @apply focus:ring-yellow-500;
+}
+
+.info .closeButton {
+  @apply focus:ring-blue-500;
+}
+
+.closeIcon {
+  @apply w-4 h-4;
+}
+
+.success .closeIcon {
+  @apply text-green-700;
+}
+
+.error .closeIcon {
+  @apply text-red-700;
+}
+
+.warning .closeIcon {
+  @apply text-yellow-700;
+}
+
+.info .closeIcon {
+  @apply text-blue-700;
+}

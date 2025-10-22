@@ -9,17 +9,26 @@ export function LoginForm({
   onSuccess,
   showTitle = true,
   showRegisterLink = true,
+  onboardingMode = false,
+  onBeforeSignIn,
 }: LoginFormProps) {
   const handleGoogleSignIn = async () => {
     try {
+      // If in onboarding mode, execute onBoarding action first
+      if (onboardingMode && onBeforeSignIn) {
+        await onBeforeSignIn();
+      }
+
       await signIn("google", {
         callbackUrl: "/dashboard",
       });
+
       if (onSuccess) {
         onSuccess();
       }
     } catch (error) {
       console.error("Error signing in:", error);
+      throw error; // Re-throw to let parent handle it
     }
   };
 
