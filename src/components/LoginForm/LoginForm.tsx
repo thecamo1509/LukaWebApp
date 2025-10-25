@@ -11,16 +11,17 @@ export function LoginForm({
   showRegisterLink = true,
   onboardingMode = false,
   onBeforeSignIn,
+  callbackUrl = "/dashboard",
 }: LoginFormProps) {
   const handleGoogleSignIn = async () => {
     try {
-      // If in onboarding mode, execute onBoarding action first
+      // If in onboarding mode, execute callback before sign in
       if (onboardingMode && onBeforeSignIn) {
         await onBeforeSignIn();
       }
 
       await signIn("google", {
-        callbackUrl: "/dashboard",
+        callbackUrl,
       });
 
       if (onSuccess) {

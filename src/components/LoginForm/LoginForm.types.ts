@@ -4,4 +4,5 @@ export interface LoginFormProps {
   showRegisterLink?: boolean;
   onboardingMode?: boolean;
   onBeforeSignIn?: () => Promise<void>;
+  callbackUrl?: string;
 }

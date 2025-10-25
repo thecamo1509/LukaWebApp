@@ -5,12 +5,15 @@ export default auth((req) => {
   const isLoggedIn = !!req.auth;
   const isOnDashboard = req.nextUrl.pathname.startsWith("/dashboard");
   const isOnOnboarding = req.nextUrl.pathname.startsWith("/onboarding");
+  const isCompletingOnboarding =
+    req.nextUrl.pathname === "/onboarding/complete";
 
   if (isOnDashboard && !isLoggedIn) {
     return NextResponse.redirect(new URL("/onboarding", req.url));
   }
 
-  if (isOnOnboarding && isLoggedIn) {
+  // Allow /onboarding/complete for authenticated users
+  if (isOnOnboarding && isLoggedIn && !isCompletingOnboarding) {
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { PiggyBank, Shield, TrendingUp, Trophy } from "lucide-react";
-import { actionCompleteOnboarding } from "@/actions/onboarding/onboarding";
+import { actionSaveOnboardingData } from "@/actions/onboarding/save-data";
 import { AnimatedContent } from "@/components/AnimatedContent/AnimatedContent";
 import { LoginForm } from "@/components/LoginForm/LoginForm";
 import { SourcePreviewCard } from "@/components/SourcePreviewCard/SourcePreviewCard";
@@ -31,32 +31,40 @@ export function Step3Login() {
   // Create unique key based on strategy and source to force re-render on changes
   const contentKey = `step3-${strategy.type}-${source?.name}`;
 
-  const handleCompleteOnboarding = async () => {
+  const handleBeforeSignIn = async () => {
     if (!source) {
       showToast("Error: No se ha configurado una fuente", "error");
-      return;
+      throw new Error("No se ha configurado una fuente");
     }
 
     try {
-      await actionCompleteOnboarding({
+      // Save onboarding data to cookies before authentication
+      await actionSaveOnboardingData({
         source: {
           name: source.name,
-          type: source.type,
-          subtype: source.subtype,
+          type: source.type.toUpperCase() as "CASH" | "BANK_ACCOUNT" | "CARD",
+          subtype: source.subtype?.toUpperCase() as
+            | "SAVINGS"
+            | "CHECKING"
+            | "DEBIT_CARD"
+            | "CREDIT_CARD"
+            | undefined,
           balance: source.balance,
           color: source.color,
           sourceNumber: source.source_number,
         },
-        strategy: strategy.type.toUpperCase(),
+        strategy: strategy.type.toUpperCase() as
+          | "RECOMMENDED"
+          | "CONSERVATIVE"
+          | "SAVER"
+          | "INVESTOR",
       });
-
-      showToast("¡Onboarding completado con éxito!", "success", 3000);
-      // The sign in will happen in LoginForm after this resolves
+      // Data saved, proceed with sign in
     } catch (error) {
       const errorMessage =
         error instanceof Error
           ? error.message
-          : "Error al completar el onboarding";
+          : "Error al guardar los datos del onboarding";
       showToast(errorMessage, "error");
       throw error; // Re-throw to prevent sign in
     }
@@ -108,7 +116,8 @@ export function Step3Login() {
             showTitle={false}
             showRegisterLink={false}
             onboardingMode
-            onBeforeSignIn={handleCompleteOnboarding}
+            onBeforeSignIn={handleBeforeSignIn}
+            callbackUrl="/onboarding/complete"
           />
         </div>
       </div>
